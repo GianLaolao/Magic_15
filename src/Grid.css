@@ -1,11 +1,11 @@
 
 .grid-cont .btn {
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
 } 
 
 .grid-cont {
-    width: 500px;
+    width: 400px;
 }
 
 @media (max-width: 1000px) {
