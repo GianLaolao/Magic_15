@@ -1,0 +1,18 @@
+
+.howto-cont {
+    position: absolute;
+    border: 1px solid black;
+    width: 440px;
+    height: 310px;
+    left: 1240px;
+    top: 115px;
+}
+
+@media (max-width: 1000px) {
+    
+    .howto-cont {
+        position: relative;
+        left: 0px;
+        top: 20px;
+    }
+}

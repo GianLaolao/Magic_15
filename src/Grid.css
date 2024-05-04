@@ -1,0 +1,21 @@
+
+.grid-cont .btn {
+    height: 150px;
+    width: 150px;
+} 
+
+.grid-cont {
+    width: 500px;
+}
+
+@media (max-width: 1000px) {
+
+    .grid-cont .btn {
+        height: 100px;
+        width: 100px;
+    } 
+
+    .grid-cont {
+        width: 350px;
+    }
+}
