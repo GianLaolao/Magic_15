@@ -1,13 +1,21 @@
 
 import './Grid.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Grid(props) {
 
     const [grid, setGrid] = useState([[null,null,null],[null,null,null],[null,null,null]]);
-    const [isGridDisabled, setGridDisable] = useState(false);
+    const [isGridDisabled, setGridDisable] = useState([false, false, false, false, false, false, false, false, false]);
     const WIN = 15;
     
+    useEffect(() => {
+        if(props.r) {
+            setGrid([[null,null,null],[null,null,null],[null,null,null]]);
+            setGridDisable(false);
+        }
+    }, [props.r]);
+
+
     const handleGrid = (x, y, event) => {
         if(props.newNum !== null) {
 
@@ -17,7 +25,9 @@ function Grid(props) {
     
             setGrid(newGrid);
     
-            event.target.disabled = true;
+            var dis = isGridDisabled;
+            dis[parseInt(event.target.id)] = true;
+            setGridDisable(dis);
     
             var newDis = [...props.dis];
     
@@ -37,7 +47,7 @@ function Grid(props) {
 
     function gameEnd() {
         props.disableFunc([true, true, true, true, true, true, true, true, true]);
-        setGridDisable(true);   
+        setGridDisable([true, true, true, true, true, true, true, true, true]);   
         props.endFunc(true);
     }
 
@@ -127,35 +137,35 @@ function Grid(props) {
         <div className="grid-cont container">
             <div className="row mb-3">
                 <div className="col-sm-4">
-                    <button disabled={isGridDisabled} className="btn btn-secondary" onClick={(event) => handleGrid(0,0, event)}>{grid[0][0]}</button>
+                    <button id="0" disabled={isGridDisabled[0]} className="btn btn-secondary" onClick={(event) => handleGrid(0,0, event)}>{grid[0][0]}</button>
                 </div>
                 <div className="col-sm-4">
-                    <button disabled={isGridDisabled} className="btn btn-secondary" onClick={(event) => handleGrid(0,1, event)}>{grid[0][1]}</button>
+                    <button id="1" disabled={isGridDisabled[1]} className="btn btn-secondary" onClick={(event) => handleGrid(0,1, event)}>{grid[0][1]}</button>
                 </div>
                 <div className="col-sm-4">
-                    <button disabled={isGridDisabled} className="btn btn-secondary" onClick={(event) => handleGrid(0,2, event)}>{grid[0][2]}</button>
-                </div>
-            </div>
-            <div className="row mb-3">
-                <div className="col-sm-4">
-                    <button disabled={isGridDisabled} className="btn btn-secondary" onClick={(event) => handleGrid(1,0, event)}>{grid[1][0]}</button>
-                </div>
-                <div className="col-sm-4">
-                    <button disabled={isGridDisabled} className="btn btn-secondary" onClick={(event) => handleGrid(1,1, event)}>{grid[1][1]}</button>
-                </div>
-                <div className="col-sm-4">
-                    <button disabled={isGridDisabled} className="btn btn-secondary" onClick={(event) => handleGrid(1,2, event)}>{grid[1][2]}</button>
+                    <button id="2" disabled={isGridDisabled[2]} className="btn btn-secondary" onClick={(event) => handleGrid(0,2, event)}>{grid[0][2]}</button>
                 </div>
             </div>
             <div className="row mb-3">
                 <div className="col-sm-4">
-                    <button disabled={isGridDisabled} className="btn btn-secondary" onClick={(event) => handleGrid(2,0, event)}>{grid[2][0]}</button>
+                    <button id="3" disabled={isGridDisabled[3]} className="btn btn-secondary" onClick={(event) => handleGrid(1,0, event)}>{grid[1][0]}</button>
                 </div>
                 <div className="col-sm-4">
-                    <button disabled={isGridDisabled} className="btn btn-secondary" onClick={(event) => handleGrid(2,1, event)}>{grid[2][1]}</button>
+                    <button id="4" disabled={isGridDisabled[4]} className="btn btn-secondary" onClick={(event) => handleGrid(1,1, event)}>{grid[1][1]}</button>
                 </div>
                 <div className="col-sm-4">
-                    <button disabled={isGridDisabled} className="btn btn-secondary" onClick={(event) => handleGrid(2,2, event)}>{grid[2][2]}</button>
+                    <button id="5" disabled={isGridDisabled[5]} className="btn btn-secondary" onClick={(event) => handleGrid(1,2, event)}>{grid[1][2]}</button>
+                </div>
+            </div>
+            <div className="row mb-3">
+                <div className="col-sm-4">
+                    <button id="6" disabled={isGridDisabled[6]} className="btn btn-secondary" onClick={(event) => handleGrid(2,0, event)}>{grid[2][0]}</button>
+                </div>
+                <div className="col-sm-4">
+                    <button id="7" disabled={isGridDisabled[7]} className="btn btn-secondary" onClick={(event) => handleGrid(2,1, event)}>{grid[2][1]}</button>
+                </div>
+                <div className="col-sm-4">
+                    <button id="8" disabled={isGridDisabled[8]} className="btn btn-secondary" onClick={(event) => handleGrid(2,2, event)}>{grid[2][2]}</button>
                 </div>
             </div>
         </div>

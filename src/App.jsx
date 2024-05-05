@@ -1,15 +1,16 @@
 import './App.css'
 import Grid from './Grid.jsx'
 import HowTo from './HowTo.jsx'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {  
 
   const [turn, setTurn] = useState(1);
   const [num, setNum] = useState(null); 
-  const [isDisabled, setDisabled] = useState([false, false, false, false, false, false, false, false, false])
+  const [isDisabled, setDisabled] = useState([false, false, false, false, false, false, false, false, false]);
   const [isEnd, setEnd] = useState(false)
   const [isWin, setWin] = useState();
+  const [reset, setReset] = useState(false);
 
   const handleClick = (event) => {
     const val = event.target.value;
@@ -17,7 +18,8 @@ function App() {
   }
 
   const refresh = function refresh() {
-    window.location.reload();
+    setReset(prevReset => !prevReset);
+    setDisabled([false, false, false, false, false, false, false, false, false]);
   }
 
   return (
@@ -32,7 +34,7 @@ function App() {
           </h1>
         </div>
         
-        <Grid newNum={num} turn={turn} numFunc={setNum} endFunc={setEnd} winFunc={setWin} turnFunc={setTurn} dis={isDisabled} disableFunc={setDisabled}/>
+        <Grid r={reset} newNum={num} turn={turn} numFunc={setNum} endFunc={setEnd} winFunc={setWin} turnFunc={setTurn} dis={isDisabled} disableFunc={setDisabled}/>
 
         <div className="container bot mt-5">
             <label className="h3" htmlFor="num">Number: </label>
