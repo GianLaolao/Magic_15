@@ -21,6 +21,11 @@ function App() {
     setReset(prevReset => !prevReset);
     setDisabled([false, false, false, false, false, false, false, false, false]);
   }
+  
+  useEffect(() => {
+      setEnd(false);
+      setTurn(1);
+  }, [reset])
 
   return (
     <>

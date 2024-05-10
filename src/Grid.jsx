@@ -9,10 +9,8 @@ function Grid(props) {
     const WIN = 15;
     
     useEffect(() => {
-        if(props.r) {
-            setGrid([[null,null,null],[null,null,null],[null,null,null]]);
-            setGridDisable(false);
-        }
+        setGrid([[null,null,null],[null,null,null],[null,null,null]]);
+        setGridDisable([false, false, false, false, false, false, false, false, false]);
     }, [props.r]);
 
 
