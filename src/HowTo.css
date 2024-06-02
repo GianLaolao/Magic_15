@@ -2,17 +2,20 @@
 .howto-cont {
     position: absolute;
     border: 1px solid black;
-    width: 440px;
-    height: 310px;
-    left: 1080px;
-    top: 115px;
+    width: 30%;
+    height: 45%;
+    left: 69%;
+    top: 21%;
+    font-size: 1em;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
     
     .howto-cont {
         position: relative;
         left: 0px;
         top: 20px;
+        width: 100%;
     }
+    
 }

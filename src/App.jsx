@@ -28,8 +28,7 @@ function App() {
   }, [reset])
 
   return (
-    <>
-      <div className="cont container">
+      <div className="cont container p-5">
 
         <HowTo />
         
@@ -59,7 +58,6 @@ function App() {
 
         <button className="reset btn btn-danger" onClick={refresh}>Reset</button>
       </div>
-    </>
   )
 }
 

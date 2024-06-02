@@ -5,17 +5,18 @@
 } 
 
 .grid-cont {
-    width: 400px;
+    width: 34%;
+    height: fit-content;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
 
     .grid-cont .btn {
-        height: 100px;
-        width: 100px;
+        height: 0px;
+        width: 40px;
     } 
 
     .grid-cont {
-        width: 350px;
+        width: 60%;
     }
 }

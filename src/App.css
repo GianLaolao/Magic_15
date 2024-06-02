@@ -1,3 +1,6 @@
+:root {
+  overflow: hidden;
+}
 
 .button-cont {
   height: 50px;
@@ -13,12 +16,16 @@
   height: 50px;
   width: 100px;
   font-size: 20px;
-  top: 10px;
-  left: 1400px;
+  top: 5%;
+  left: 91%;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
   
+  :root {
+    overflow: auto;
+  }
+
   .cont .label {
     position: relative;
     top: 20px;
@@ -33,7 +40,7 @@
     height: 40px;
     width: 80px;
     left: 70%;
-    top: 800px;
+    top: 170%;
     font-size: 18px;
   }
 }
